@@ -673,8 +673,8 @@ target_compile_definitions(libtgvoip PUBLIC
         # Chose one of NO_DSP / DESKTOP_DSP
         # FIXME: desktop DSP cannot be used since last libtgvoip update
         #  since libtgvoip codebase is tighten to external webrtc
-        TGVOIP_NO_DSP
-        # TGVOIP_USE_DESKTOP_DSP
+        # TGVOIP_NO_DSP
+        TGVOIP_USE_DESKTOP_DSP
         TGVOIP_USE_SOFTWARE_AUDIO)
 
 if (${spdlog_FOUND})
