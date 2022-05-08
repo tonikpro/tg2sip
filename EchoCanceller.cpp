@@ -93,8 +93,6 @@ EchoCanceller::EchoCanceller(bool enableAEC, bool enableNS, bool enableAGC){
 		config.gain_controller1.enable_limiter = ServerConfig::GetSharedInstance()->GetBoolean("webrtc_agc_enable_limiter", true);
 		config.gain_controller1.compression_gain_db = ServerConfig::GetSharedInstance()->GetInt("webrtc_agc_compression_gain", 20);
 	}
-	config.voice_detection.enabled = true;
-
 	apm->ApplyConfig(config);
 #endif
 
@@ -220,10 +218,6 @@ void EchoCanceller::SetVoiceDetectionEnabled(bool enabled){
 #ifndef TGVOIP_NO_DSP
 #ifdef TGVOIP_USE_DESKTOP_DSP_BUNDLED
 	apm->voice_detection()->Enable(enabled);
-#else
-	auto config = apm->GetConfig();
-	config.voice_detection.enabled = enabled;
-	apm->ApplyConfig(config);
 #endif
 #endif
 }
